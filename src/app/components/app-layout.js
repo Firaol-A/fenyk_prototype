@@ -77,7 +77,7 @@ export default function AppLayout({ children }) {
                 </Link>
             </div>
             {/* main content goes here */}
-            <div className="flex-1 bg-[#F6F6F6] p-8 overflow-y-auto">
+            <div className="flex-1 bg-[#F6F6F6] overflow-y-auto">
               {children}
             </div>
       </div>
