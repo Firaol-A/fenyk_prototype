@@ -19,15 +19,17 @@ export default function AppLayout({ children }) {
 
     function getNavItems(item) {
         return (
-          <div className="flex flex-row items-center mb-5" id={item.id}>
-              <Image
-                src={item.navPath}
-                alt={""}
-                width={32}
-                height={32}
-                className="mr-2"
-              />
-              <p>{item.navName}</p>
+          <div className="" id={item.id}>
+              <Link href={item.navName.toLowerCase()} className={"flex flex-row items-center mb-5"}>
+                  <Image
+                      src={item.navPath}
+                      alt={""}
+                      width={32}
+                      height={32}
+                      className="mr-2 "
+                  />
+                  <p>{item.navName}</p>
+              </Link>
           </div>
         );
     }
@@ -70,7 +72,7 @@ export default function AppLayout({ children }) {
                         alt=""
                         width={"50"}
                         height={"50"}
-                        className="text-[#EDE7DB]"
+                        className=""
                     />
                 </Link>
             </div>
