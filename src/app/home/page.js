@@ -1,12 +1,12 @@
 "use client";
 
 import { useAuth } from "../firebase/auth-context";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import AppLayout from "../components/app-layout";
 
 export default function HomePage() {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
@@ -15,20 +15,9 @@ export default function HomePage() {
     }
   }, [user, router]);
 
-  const handleLogout = async () => {
-    await logout();
-    router.push("/login");
-  };
   return (
-    <div>
-      <h1>Home Page</h1>
-
-      <button
-        onClick={handleLogout}
-        className="mt-4 bg-[#0D2636] text-white px-4 py-2 rounded hover:opacity-90 transition"
-      >
-        Sign Out
-      </button>
-    </div>
+    <AppLayout>
+      <h1>dashboard</h1>
+    </AppLayout>
   );
 }
