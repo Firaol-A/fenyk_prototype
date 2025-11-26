@@ -11,10 +11,10 @@ export default function AppLayout({ children }) {
     const router = useRouter();
 
     const navItems = [
-        {navName:'SCHEDULE', navPath:'src/assets/icons/calendar-event-fill.svg'},
-        {navName:'NOTICES', navPath:'src/assets/icons/megaphone-fill.svg'},
-        {navName:'CALENDAR', navPath:'src/assets/icons/pin-angle-fill.svg'},
-        {navName:'FILES', navPath:"src/assets/icons/folder-fill.svg"},
+        {navName:'SCHEDULE', navPath:'/icons/calendar-event-fill.svg'},
+        {navName:'NOTICES', navPath:'/icons/megaphone-fill.svg'},
+        {navName:'CALENDAR', navPath:'/icons/pin-angle-fill.svg'},
+        {navName:'FILES', navPath:'/icons/folder-fill.svg'},
     ]
 
     function getNavItems(item) {
@@ -25,7 +25,7 @@ export default function AppLayout({ children }) {
                 alt={""}
                 width={50}
                 height={50}
-                className=""
+                className="text-[#EDE7DB]"
               />
               <p>{item.navName}</p>
           </div>
@@ -40,14 +40,15 @@ export default function AppLayout({ children }) {
     <div className="h-screen w-screen flex">
       {/* nav bar */}
         <div className="w-58 bg-[#0D2636] text-white flex flex-col items-center py-6">
-
-            <Image
-                src="/images/Fenyk_logo_2.png"
-                alt="FENYK Logo"
-                width={150}
-                height={150}
-                className="mb-8"
-            />
+            <Link href={"/home"}>
+                <Image
+                    src="/images/Fenyk_logo_2.png"
+                    alt="FENYK Logo"
+                    width={150}
+                    height={150}
+                    className="mb-8"
+                />
+            </Link>
             <ul>
                 {navItems.map(getNavItems)}
             </ul>
@@ -63,13 +64,16 @@ export default function AppLayout({ children }) {
         <div className="flex-1 flex flex-col">
         {/* top bar */}
             <div className="h-20 w-full bg-[#0D2636] flex items-center px-5 text-white justify-end">
-                <Image
-                    src={"person-circle.svg"}
-                    alt=""
-                    width={"50"}
-                    height={"50"}
-                    className=""
-                />
+                <Link href="/profile">
+                    <Image
+                        src={"icons/person-circle.svg"}
+                        alt=""
+                        width={"50"}
+                        height={"50"}
+                        className="text-[#EDE7DB]"
+                    />
+                </Link>
+
             </div>
 
             {/* main content goes here */}
