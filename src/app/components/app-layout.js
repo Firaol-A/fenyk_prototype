@@ -65,14 +65,14 @@ export default function AppLayout({ children }) {
         {/* top bar, content*/}
         <div className="flex-1 flex flex-col">
         {/* top bar */}
-            <div className="h-20 w-full bg-[#0D2636] flex items-center px-5 text-white justify-end">
+            <div className="h-20 w-full bg-[#0D2636] flex items-center px-5 text-white justify-end  ">
                 <Link href="/profile">
                     <Image
                         src={"icons/person-circle.svg"}
                         alt=""
-                        width={"50"}
-                        height={"50"}
-                        className=""
+                        width={50}
+                        height={50}
+                        className="fill-[#F6F6F6] active:fill-[#668F80]"
                     />
                 </Link>
             </div>

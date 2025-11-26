@@ -18,15 +18,13 @@ export default function HomePage() {
 
   return (
     <AppLayout>
-        <div>
-            <Image
-                src="/images/dashboardPlaceHolder.png"
-                alt="Logo"
-                width={1100}
-                height={1100}
-                className=""
-            />
-        </div>
+        <Image
+            src="/images/dashboardPlaceHolder.png"
+            alt="Logo"
+            width={1100}
+            height={1100}
+            className=""
+        />
     </AppLayout>
   );
 }
