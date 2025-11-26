@@ -19,13 +19,13 @@ export default function AppLayout({ children }) {
 
     function getNavItems(item) {
         return (
-          <div className="flex flex-row items-center" id={item.id}>
+          <div className="flex flex-row items-center mb-5" id={item.id}>
               <Image
                 src={item.navPath}
                 alt={""}
-                width={50}
-                height={50}
-                className="text-[#EDE7DB]"
+                width={32}
+                height={32}
+                className="mr-2"
               />
               <p>{item.navName}</p>
           </div>
@@ -39,7 +39,7 @@ export default function AppLayout({ children }) {
   return (
     <div className="h-screen w-screen flex">
       {/* nav bar */}
-        <div className="w-58 bg-[#0D2636] text-white flex flex-col items-center py-6">
+        <div className="w-45 bg-[#0D2636] text-white flex flex-col items-center py-6">
             <Link href={"/home"}>
                 <Image
                     src="/images/Fenyk_logo_2.png"
@@ -54,7 +54,7 @@ export default function AppLayout({ children }) {
             </ul>
             <button
                 onClick={handleLogout}
-                className="mt-auto bg-[#F6F6F6] text-black font-bold px-4 py-3 rounded-lg hover:opacity-90 transition w-50"
+                className="mt-auto bg-[#F6F6F6] text-black font-bold px-4 py-3 rounded-lg hover:opacity-90 transition w-40"
             >
                 SIGN OUT
             </button>
@@ -73,9 +73,7 @@ export default function AppLayout({ children }) {
                         className="text-[#EDE7DB]"
                     />
                 </Link>
-
             </div>
-
             {/* main content goes here */}
             <div className="flex-1 bg-[#F6F6F6] p-8 overflow-y-auto">
               {children}
