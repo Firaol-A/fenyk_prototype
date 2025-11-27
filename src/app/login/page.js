@@ -56,7 +56,7 @@ export default function LoginPage() {
       <div className="w-1/2 bg-[#F6F6F6] flex flex-col items-center justify-center">
         {/* Top text (outside white box) */}
         <h2 className="text-xl font-medium mb-4 -mt-10">
-          Hey there!, Sign in to get started.
+          Hey there! Sign in to get started.
         </h2>
 
         <div className="bg-white border border-black rounded-md p-8 w-96 shadow-sm">
