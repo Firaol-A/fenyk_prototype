@@ -21,8 +21,8 @@ export default function HomePage() {
         <Image
             src="/images/dashboardPlaceHolder.png"
             alt="Logo"
-            width={1100}
-            height={1100}
+            width={2000}
+            height={2000}
             className=""
         />
     </AppLayout>
