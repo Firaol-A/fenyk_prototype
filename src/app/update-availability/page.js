@@ -20,7 +20,7 @@ export default function UpdateAvailabilityPage() {
 
   return (
     <AppLayout>
-      <h1 className="text-3xl font-bold text-center mb-4 mt-7">
+      <h1 className="text-3xl font-extrabold text-center mb-4 mt-7">
         YOUR AVAILABILITY
       </h1>
       <h1 className="text-center mb-8 font-semibold text-2xl">
@@ -40,18 +40,19 @@ export default function UpdateAvailabilityPage() {
         <div className="-ml-15">
           <DayAvailabilityRow key={days[1]} day={days[1]} />
         </div>
+      </div>
 
-        <div className="flex justify-center mt-8">
-          <button className="bg-[#0D2636] text-white font-bold px-6 py-3 rounded-lg">
-            Save Availability
-          </button>
-          <button
-            onClick={() => router.push("/profile")}
-            className="bg-gray-300 text-black font-semibold px-6 py-3 ml-30 rounded-lg"
-          >
-            Cancel
-          </button>
-        </div>
+      <div className="flex justify-center mt-8 space-x-20">
+        <button className="bg-[#0D2636] text-white  px-7 py-4 rounded-lg w-75">
+          SAVE AVAILABILITY
+        </button>
+
+        <button
+          onClick={() => router.push("/profile")}
+          className="bg-gray-300 text-black  px-7 py-4 rounded-lg w-75"
+        >
+          CANCEL
+        </button>
       </div>
     </AppLayout>
   );
