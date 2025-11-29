@@ -1,6 +1,6 @@
 "use client";
 
-import { Router } from "next/router";
+
 import AppLayout from "../components/app-layout";
 import { useAuth } from "@/app/firebase/auth-context";
 import { useRouter } from "next/navigation";

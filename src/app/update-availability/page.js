@@ -38,7 +38,9 @@ export default function UpdateAvailabilityPage() {
 
       <div className="max-w-3xl mx-auto p-4">
         <div className="-ml-15">
-          <DayAvailabilityRow key={days[1]} day={days[1]} />
+          {days.map((day) => (
+            <DayAvailabilityRow key={day} day={day} />  
+          ))}
         </div>
       </div>
 
