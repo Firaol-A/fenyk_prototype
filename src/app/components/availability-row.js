@@ -35,8 +35,8 @@ export default function DayAvailabilityRow({ day }) {
         <span className="text-base font-medium text-gray-700">From:</span>
         <input
           type="text"
-          className="border border-gray-400 p-2 rounded-lg w-40 h-15 text-base text-center"
-          placeholder="__:__"
+          className="border border-gray-400 placeholder:font-semibold p-2 rounded-lg w-40 h-15 text-base text-center"
+          placeholder="_ _:_ _"
           value={fromTime}
           onChange={(e) => setFromTime(e.target.value)}
           disabled={allDay}
@@ -68,8 +68,8 @@ export default function DayAvailabilityRow({ day }) {
         <span className="text-base font-medium text-gray-700">To:</span>
         <input
           type="text"
-          className="border border-gray-400 p-2 rounded-lg w-40 h-15 text-base text-center"
-          placeholder="__:__"
+          className="border border-gray-400  placeholder:font-semibold p-2 rounded-lg w-40 h-15 text-base text-center"
+          placeholder="_ _:_ _"
           value={toTime}
           onChange={(e) => setToTime(e.target.value)}
           disabled={allDay}
