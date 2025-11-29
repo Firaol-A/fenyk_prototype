@@ -2,7 +2,7 @@
 
 import { Router } from "next/router";
 import AppLayout from "../components/app-layout";
-import { useAuth } from "@/app/firebase/auth-context";
+import { useAuth } from "@/app/_utils/auth-context";
 import { useRouter } from "next/navigation";
 
 export default function HomePage() {
@@ -22,7 +22,7 @@ export default function HomePage() {
                 className={
                   "border-1 border-[@668F80] rounded-md w-1/4 text-left pl-0.5 mb-4 p-1.5"
                 }
-                placeholder={user.email}
+                placeholder={user ? user.email : "Not logged in"}
               ></input>
             </label>
             <p>Password</p>
