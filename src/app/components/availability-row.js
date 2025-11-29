@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function DayAvailabilityRow({ day, onChange }) {
   const [fromTime, setFromTime] = useState("");
@@ -157,11 +158,16 @@ useEffect(() => {
           type="checkbox"
           checked={allDay}
           onChange={(e) => handleDayToggle(e.target.checked)}
-          className="w-5 h-5"
+          className="w-5 h-5 hover:cursor-pointer"
         />
       </div>
-
-      <button onClick={resetFields}>🗑️</button>
+      <Image
+        onClick={() => {resetFields()}}
+        src="icons/trashbin.svg"
+        alt="clear row button"
+        width={26}
+        height={26}
+        className="hover:cursor-pointer"/>
     </div>
   );
 }
