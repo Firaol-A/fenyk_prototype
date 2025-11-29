@@ -17,6 +17,10 @@ export default function DayAvailabilityRow({ day }) {
     setAllDay(false);
   };
 
+  function handleNumericInput(value) {
+    return value.replace(/\D/g, "");
+  }
+
   return (
     <div
       className="
@@ -38,7 +42,7 @@ export default function DayAvailabilityRow({ day }) {
           className="border border-gray-400 placeholder:font-semibold p-2 rounded-lg w-40 h-15 text-base text-center"
           placeholder="_ _:_ _"
           value={fromTime}
-          onChange={(e) => setFromTime(e.target.value)}
+          onChange={(e) => setFromTime(handleNumericInput(e.target.value))}
           disabled={allDay}
         />
       </div>
@@ -71,7 +75,7 @@ export default function DayAvailabilityRow({ day }) {
           className="border border-gray-400  placeholder:font-semibold p-2 rounded-lg w-40 h-15 text-base text-center"
           placeholder="_ _:_ _"
           value={toTime}
-          onChange={(e) => setToTime(e.target.value)}
+          onChange={(e) => setToTime(handleNumericInput(e.target.value))}
           disabled={allDay}
         />
       </div>
