@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function DayAvailabilityRow({ day }) {
+export default function DayAvailabilityRow({ day, onChange }) {
   const [fromTime, setFromTime] = useState("");
   const [fromPeriod, setFromPeriod] = useState("AM");
   const [toTime, setToTime] = useState("");
@@ -17,9 +17,57 @@ export default function DayAvailabilityRow({ day }) {
     setAllDay(false);
   };
 
+  const handleDayToggle = (allDayChecked) => {
+    setAllDay(allDayChecked);
+
+    if(allDayChecked) {
+      setFromTime("7:00");
+      setFromPeriod("AM");
+      setToTime("10:00");
+      setToPeriod("PM");
+    } else {
+      resetFields();
+    }
+
+  };
+
   function handleNumericInput(value) {
     return value.replace(/\D/g, "");
   }
+
+
+  function formatTime(value) {
+  const digits = value.replace(/\D/g, "");
+
+  if (!digits) return "";
+
+
+  if (digits.length >= 3) {
+    const hour = parseInt(digits.slice(0, digits.length - 2), 10);
+    const minute = digits.slice(-2);
+
+    if (hour < 1 || hour > 12) return "";
+    return `${hour}:${minute}`;
+  }
+
+
+  const hour = parseInt(digits, 10);
+  if (hour < 1 || hour > 12) return "";
+
+  return `${hour}:00`;
+}
+
+useEffect(() => {
+    if (!onChange) return;
+    
+    onChange(day, {
+      fromTime,
+      fromPeriod,
+      toTime,
+      toPeriod,
+      allDay,
+    });
+  }, [day, fromTime, fromPeriod, toTime, toPeriod, allDay, onChange]);
 
   return (
     <div
@@ -43,6 +91,7 @@ export default function DayAvailabilityRow({ day }) {
           placeholder="_ _:_ _"
           value={fromTime}
           onChange={(e) => setFromTime(handleNumericInput(e.target.value))}
+          onBlur={() => setFromTime(formatTime(fromTime))}
           disabled={allDay}
         />
       </div>
@@ -76,6 +125,7 @@ export default function DayAvailabilityRow({ day }) {
           placeholder="_ _:_ _"
           value={toTime}
           onChange={(e) => setToTime(handleNumericInput(e.target.value))}
+          onBlur={() => setToTime(formatTime(toTime))}
           disabled={allDay}
         />
       </div>
@@ -106,7 +156,7 @@ export default function DayAvailabilityRow({ day }) {
         <input
           type="checkbox"
           checked={allDay}
-          onChange={(e) => setAllDay(e.target.checked)}
+          onChange={(e) => handleDayToggle(e.target.checked)}
           className="w-5 h-5"
         />
       </div>
