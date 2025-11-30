@@ -55,14 +55,19 @@ export default function HomePage() {
         if (loading) {
             return <p className={"text-center text-[#141E13] mt-5"}>Loading Availability...</p>;
         }
+
+        const availableDays = availableWeek.filter(dayData => {
+            return dayData.allDay || dayData.fromTime !== "";
+        })
+
         if (selectedWeek !== "DEFAULT" && availableWeek.length === 0) {
             return <p className={"text-center text-[#141E13] mt-5"}>No availability submitted for {selectedWeek}</p>;
         }
-        if (availableWeek.length > 0) {
+        if (availableDays.length > 0) {
             return (
                 <div className={"mt-4"}>
                     <ul className={"space-y-3 p-3"}>
-                        {availableWeek.map((dayData) => (
+                        {availableDays.map((dayData) => (
                             <AvailabilityDayCard
                                 key={dayData.weekday}
                                 selectedWeek={dayData.selectedWeek}
