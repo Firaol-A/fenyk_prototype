@@ -5,8 +5,8 @@ import AppLayout from "../components/app-layout";
 import DayAvailabilityRow from "../components/availability-row";
 import { useRouter } from "next/navigation";
 
-import { useAuth } from "@/app/firebase/auth-context";
-import { db } from "@/app/firebase/firebase-config";
+import { useAuth } from "../_utils/auth-context";
+import { db } from "../_utils/firebase-config";
 import { doc, setDoc } from "firebase/firestore";
 
 export default function UpdateAvailabilityPage() {
@@ -39,7 +39,9 @@ export default function UpdateAvailabilityPage() {
 
 
   const handleSave = async () => {
+
     try {
+      
       await setDoc(docRef, {userId: user.uid, week: selectedWeek, availability: availability});
 
       console.log("Availability saved successfully!");
