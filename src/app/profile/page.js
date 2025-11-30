@@ -8,6 +8,7 @@ import {useRouter} from "next/navigation";
 import {useEffect, useState} from "react";
 import {getWeekIdAndAvailability} from "@/app/_services/employee_availability_services";
 import AvailabilityDayCard from "../components/availability-day-card";
+import Image from "next/image";
 
 export default function HomePage() {
     const {user} = useAuth();
@@ -64,6 +65,7 @@ export default function HomePage() {
                         {availableWeek.map((dayData) => (
                             <AvailabilityDayCard
                                 key={dayData.weekday}
+                                selectedWeek={dayData.selectedWeek}
                                 weekday={dayData.weekday}
                                 fromTime={dayData.fromTime}
                                 toTime={dayData.toTime}
@@ -86,7 +88,16 @@ export default function HomePage() {
 
                 <div className="w-full flex justify-center">
 
-                    <div className="flex flex-col items-start w-1/2 p-4 mt-45">
+                    <div className="flex flex-col items-start w-1/2 p-4 mt-10">
+                        <div className="rounded-full bg-gray-300 w-60 h-60">
+                        </div>
+                        <Image
+                            src={"icons/plus-circle-fill.svg"}
+                            alt=""
+                            width={40}
+                            height={40}
+                            className={"ml-60"}
+                        />
                         <label htmlFor="email" className={"flex flex-col w-full max-w-xs mb-4"}>
                             Email
                             <input
@@ -113,7 +124,7 @@ export default function HomePage() {
                             />
                         </label>
                         <button
-                            className="bg-[#0D2636] text-[#F6F6F6] font-bold px-4 py-3 rounded-lg hover:opacity-90 transition">
+                            className="bg-[#0D2636] text-[#F6F6F6] font-bold px-4 py-3 rounded-lg hover:opacity-90 transition, cursor-pointer">
                             CHANGE PASSWORD
                         </button>
                     </div>
@@ -125,7 +136,7 @@ export default function HomePage() {
                         <div className={"flex items-center justify-between mb-4"}>
                             <label className={"font-semibold text-lg"}>Week of:</label>
                             <select
-                                className="border p-2 rounded w-48 text-sm"
+                                className="border p-2 rounded w-48 text-sm hover:cursor-pointer"
                                 value={selectedWeek}
                                 onChange={handleWeekChange}
                             >
@@ -137,14 +148,14 @@ export default function HomePage() {
                             </select>
                         </div>
 
-                        <div className={"mb-4 border-t pt-4"}>
+                        <div className={"mb-4 border-t border-gray-200 pt-4"}>
                             {displayAvailability()}
                         </div>
 
                         <div className={"flex justify-center mt-6"}>
                             <button
                                 onClick={() => router.push("/update-availability")}
-                                className=" bg-[#0D2636] text-[#F6F6F6] font-bold px-4 py-3 rounded-lg hover:opacity-90 transition"
+                                className=" bg-[#0D2636] text-[#F6F6F6] font-bold px-4 py-3 rounded-lg hover:opacity-90 transition, cursor-pointer"
                             >
                                 UPDATE AVAILABILITY
                             </button>
