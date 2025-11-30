@@ -35,23 +35,29 @@ export default function UpdateAvailabilityPage() {
     }));
   };
 
-  const docRef = doc(db, "availability", user.uid, "weeks", selectedWeek);
+  const getDocRef = () => {
+    if (selectedWeek === "DEFAULT") {
+      return doc(db, "availability", user.uid, "default", "availability_data");
+    }
 
+    return doc(db, "availability", user.uid, "weeks", selectedWeek);
+  };
 
   const handleSave = async () => {
-
     try {
-      
-      await setDoc(docRef, {userId: user.uid, week: selectedWeek, availability: availability});
+      const docRef = getDocRef();
+      const datatoSave =
+        selectedWeek === "DEFAULT"
+          ? { availability: availability }
+          : { week: selectedWeek, availability: availability };
+
+      await setDoc(docRef, datatoSave);
 
       console.log("Availability saved successfully!");
     } catch (error) {
       console.error("Failed to save data: ", error);
     }
-
   };
-    
-
 
   return (
     <AppLayout>
@@ -63,12 +69,13 @@ export default function UpdateAvailabilityPage() {
       </h1>
       <div className="mt-12 flex justify-center items-center mr-145">
         <label className="mr-2 font-semibold text-lg">Select Week:</label>
-        <select className="border p-2 rounded w-48 text-sm" value={selectedWeek} onChange={(e) => setSelectedWeek(e.target.value)}>
+        <select
+          className="border p-2 rounded w-48 text-sm"
+          value={selectedWeek}
+          onChange={(e) => setSelectedWeek(e.target.value)}
+        >
           {weeks.map((week) => (
-            <option
-              key={week}  
-              value={week}
-            > 
+            <option key={week} value={week}>
               {week}
             </option>
           ))}
@@ -78,13 +85,20 @@ export default function UpdateAvailabilityPage() {
       <div className="max-w-3xl mx-auto p-4">
         <div className="-ml-15">
           {days.map((day) => (
-            <DayAvailabilityRow key={day} day={day} onChange={handleDayChange} />
+            <DayAvailabilityRow
+              key={day}
+              day={day}
+              onChange={handleDayChange}
+            />
           ))}
         </div>
       </div>
 
       <div className="flex justify-center mt-8 space-x-20">
-        <button onClick={handleSave} className="bg-[#0D2636] text-white  px-7 py-4 rounded-lg w-75">
+        <button
+          onClick={handleSave}
+          className="bg-[#0D2636] text-white  px-7 py-4 rounded-lg w-75"
+        >
           SUBMIT REQUEST
         </button>
 
@@ -97,6 +111,4 @@ export default function UpdateAvailabilityPage() {
       </div>
     </AppLayout>
   );
-
 }
-
