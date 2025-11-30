@@ -5,7 +5,7 @@ export default function AvailabilityDayCard({weekday, fromTime, toTime, fromPeri
     return (
         <li className={"border p-4 rounded-md border-gray-200 shadow-md "}>
             <p>{formattedWeekday}</p>
-            <p>{allDay ? "7:00 AM - 10 PM" : `{${fromTime}${fromPeriod} - ${toTime}${toPeriod}}`}</p>
+            <p>{allDay ? "7:00 AM - 10 PM" : `${fromTime} ${fromPeriod} - ${toTime} ${toPeriod}`}</p>
         </li>
     )
 }

@@ -19,9 +19,10 @@ export default function AppLayout({children}) {
 
     function getNavItems(item) {
         return (
-            <div className={"flex flex-row items-center mb-5 hover:cursor-pointer"} key={item.id}
+            <div className={"flex flex-row items-center mb-5 hover:cursor-pointer"}
                  onClick={() => router.push(item.navName)}>
                 <Image
+                    key={item}
                     src={item.navPath}
                     alt={""}
                     width={32}

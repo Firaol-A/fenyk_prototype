@@ -1,14 +1,14 @@
 import {db} from "@/app/_utils/firebase-config";
-import {collection, doc, getDoc, query, where} from "firebase/firestore";
+import {doc, getDoc} from "firebase/firestore";
 
 const DAY_ORDER = {
-    'SUNDAY' : 0,
-    'MONDAY' : 1,
-    'TUESDAY' : 2,
-    'WEDNESDAY' : 3,
-    'THURSDAY' : 4,
-    'FRIDAY' : 5,
-    'SATURDAY' : 6,
+    'SUNDAY' : 1,
+    'MONDAY' : 2,
+    'TUESDAY' : 3,
+    'WEDNESDAY' : 4,
+    'THURSDAY' : 5,
+    'FRIDAY' : 6,
+    'SATURDAY' : 7,
 }
 
 export async function getWeekIdAndAvailability(userId, selectedWeek) {
