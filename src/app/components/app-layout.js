@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {useAuth} from "@/app/_utils/auth-context";
 import {useRouter} from "next/navigation";
-import {Suspense} from "react";
 
 export default function AppLayout({children}) {
 
@@ -20,7 +19,7 @@ export default function AppLayout({children}) {
 
     function getNavItems(item) {
         return (
-            <div className={"flex flex-row items-center mb-5 hover:cursor-pointer"} id={item.id}
+            <div className={"flex flex-row items-center mb-5 hover:cursor-pointer"} key={item.id}
                  onClick={() => router.push(item.navName)}>
                 <Image
                     src={item.navPath}
@@ -84,10 +83,8 @@ export default function AppLayout({children}) {
                     />
                 </div>
                 {/* main content goes here */}
-                <div className="flex-1 bg-[#F6F6F6] overflow-y-auto">
-                    <Suspense fallback={null}>
-                        {children}
-                    </Suspense>
+                <div className="flex-1 bg-[#F6F6F6] overflow-y-auto py-5">
+                    {children}
                 </div>
             </div>
         </div>

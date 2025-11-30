@@ -68,7 +68,7 @@ useEffect(() => {
       toPeriod,
       allDay,
     });
-  }, [fromTime, fromPeriod, toTime, toPeriod, allDay]);
+  }, [day, fromTime, fromPeriod, toTime, toPeriod, allDay, onChange]);
 
   return (
     <div
