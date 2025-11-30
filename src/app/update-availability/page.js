@@ -15,6 +15,7 @@ export default function UpdateAvailabilityPage() {
 
   const [availability, setAvailability] = useState({});
   const [selectedWeek, setSelectedWeek] = useState("DEFAULT");
+  const [showOverlay, setShowOverlay] = useState(false);
 
   const days = [
     "SUNDAY",
@@ -46,12 +47,12 @@ export default function UpdateAvailabilityPage() {
   const handleSave = async () => {
     try {
       const docRef = getDocRef();
-      const datatoSave =
+      const dataToSave =
         selectedWeek === "DEFAULT"
           ? { availability: availability }
           : { week: selectedWeek, availability: availability };
 
-      await setDoc(docRef, datatoSave);
+      await setDoc(docRef, dataToSave);
 
       console.log("Availability saved successfully!");
     } catch (error) {
