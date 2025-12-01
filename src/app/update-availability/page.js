@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import AppLayout from "../components/app-layout";
 import DayAvailabilityRow from "../components/availability-row";
 import { useRouter } from "next/navigation";
@@ -35,12 +35,12 @@ export default function UpdateAvailabilityPage() {
     "Nov 23 - 29",
   ];
 
-  const handleDayChange = (day, values) => {
+  const handleDayChange = useCallback((day, values) => {
     setAvailability((prev) => ({
       ...prev,
       [day]: values,
     }));
-  };
+  }, []);
 
   const getDocRef = () => {
     if (selectedWeek === "DEFAULT") {
