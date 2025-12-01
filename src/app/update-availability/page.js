@@ -106,14 +106,14 @@ export default function UpdateAvailabilityPage() {
       <div className="flex justify-center mt-8 space-x-20">
         <button
           onClick={handleSave}
-          className="bg-[#0D2636] text-white  px-7 py-4 rounded-lg w-75 hover:cursor-pointer"
+          className="bg-[#0D2636] text-white  px-7 py-4 rounded-lg w-75 hover:cursor-pointer hover:opacity-90"
         >
           SUBMIT REQUEST
         </button>
 
         <button
           onClick={() => router.push("/profile")}
-          className="bg-gray-300 text-black  px-7 py-4 rounded-lg w-75 hover:cursor-pointer"
+          className="bg-gray-300 text-black  px-7 py-4 rounded-lg w-75 hover:cursor-pointer hover:opacity-80"
         >
           CANCEL
         </button>
