@@ -60,6 +60,7 @@ export default function UpdateAvailabilityPage() {
           : { week: selectedWeek, availability: availability };
 
       await setDoc(docRef, dataToSave);
+      setShowOverlay(true);
 
       console.log("Availability saved successfully!");
     } catch (error) {
@@ -117,6 +118,36 @@ export default function UpdateAvailabilityPage() {
           CANCEL
         </button>
       </div>
+
+      {showOverlay && (
+        <div className="fixed inset-0 flex justify-center items-center">
+          <div className="bg-white p-8 rounded-4xl w-[700px] shadow-xl border border-gray-200">
+            <h2 className="text-2xl font-bold text-center">
+              UPDATE AVAILABILITY
+            </h2>
+
+            <div className="w-full h-[2px] bg-gray-300 my-4"></div>
+
+            <div className="flex items-center justify-center space-x-3 mt-10">
+              <p className="font-bold text-2xl ml-7">UPDATE REQUESTED</p>
+              <span className="text-green-600 text-2xl">✔</span>
+            </div>
+
+            <p className="text-center font-semibold mt-3 ">
+              THE UPDATE TO YOUR AVAILABILITY HAS BEEN REQUESTED.
+            </p>
+
+            <div className="flex justify-center">
+              <button
+                onClick={() => setShowOverlay(false)}
+                className="mt-10 w-[250px] bg-[#0D2636] text-white py-3 rounded-lg hover:opacity-90"
+              >
+                CLOSE
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </AppLayout>
   );
 }
