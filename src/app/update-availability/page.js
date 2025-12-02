@@ -126,7 +126,7 @@ export default function UpdateAvailabilityPage() {
               UPDATE AVAILABILITY
             </h2>
 
-            <div className="w-full h-[2px] bg-gray-300 my-4"></div>
+            <div className="w-full h-[0.5px] bg-gray-300 my-4"></div>
 
             <div className="flex items-center justify-center space-x-3 mt-10">
               <p className="font-bold text-2xl ml-7">UPDATE REQUESTED</p>
@@ -140,7 +140,7 @@ export default function UpdateAvailabilityPage() {
             <div className="flex justify-center">
               <button
                 onClick={() => setShowOverlay(false)}
-                className="mt-10 w-[250px] bg-[#0D2636] text-white py-3 rounded-lg hover:opacity-90"
+                className="mt-10 w-[250px] bg-[#0D2636] text-white py-3 rounded-lg hover:opacity-90 hover:cursor-pointer"
               >
                 CLOSE
               </button>
