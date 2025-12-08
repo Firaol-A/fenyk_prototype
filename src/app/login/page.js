@@ -101,7 +101,7 @@ export default function LoginPage() {
                 </div>
 
                 <div className="w-96 flex justify-end mt-3">
-                    <Link href="">
+                    <Link href=" ../register">
                         <button className="bg-[#0D2636] text-white px-4 py-2 rounded-lg hover:opacity-90 transition">
                             Register
                         </button>
