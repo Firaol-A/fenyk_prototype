@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { auth, db } from "@/app/_utils/firebase-config";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import Image from "next/image";
 import Link from "next/link";
@@ -54,7 +54,8 @@ export default function RegisterPage() {
       }
 
       await createUserWithEmailAndPassword(auth, email, password);
-      router.push("/home");
+      await signOut(auth);
+      router.push("/login");
     } catch (error) {
       console.error(error);
       if (error.code === "auth/email-already-in-use") {
