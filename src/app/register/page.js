@@ -14,9 +14,10 @@ export default function RegisterPage() {
   const [registrationCode, setRegistrationCode] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -42,7 +43,6 @@ export default function RegisterPage() {
     }
 
     try {
-     
       const codeRef = collection(db, "registrationCodes");
       const q = query(codeRef, where("code", "==", registrationCode));
       const querySnapshot = await getDocs(q);
@@ -124,7 +124,6 @@ export default function RegisterPage() {
               />
             </div>
 
-            {/* Confirm Password Field */}
             <div>
               <label className="block font-medium text-gray-800 mb-1">
                 Confirm Password
