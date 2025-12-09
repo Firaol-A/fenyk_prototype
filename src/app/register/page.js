@@ -94,7 +94,6 @@ export default function RegisterPage() {
               <input
                 type="text"
                 className="w-full p-2 border rounded-lg"
-                placeholder="9-character code"
                 value={registrationCode}
                 onChange={(e) => setRegistrationCode(e.target.value)}
               />
